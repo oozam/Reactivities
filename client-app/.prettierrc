@@ -1,0 +1,8 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "tslint.formatOnSave": true,
+  "[typescriptreact]": {
+    "tslint.formatOnSave": true
+  }
+}
