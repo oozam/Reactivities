@@ -1,8 +1,5 @@
 ﻿namespace Persistence
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
     using Domain;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata;
@@ -15,7 +12,7 @@
         }
 
         public DbSet<Value> Values { get; set; }
-        
+        public DbSet<Activity> Activities { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Value>()
@@ -24,7 +21,7 @@
                     new Value { Id = 2, Name = "Value 2"},
                     new Value { Id = 3, Name = "Value 3"}
                 );
-
+            
             foreach (IMutableEntityType entity in modelBuilder.Model.GetEntityTypes())
                 entity.SetTableName(entity.DisplayName());
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ReactivitiesDbContext).Assembly);
